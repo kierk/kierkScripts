@@ -1,0 +1,138 @@
+
+//####################################
+// For Holiday Hack Challenge 2015
+// kierke@bu.edu
+//
+//
+//####################################
+
+Source:
+https://quest.holidayhackchallenge.com/
+
+Text Challenge Writeup:
+https://holidayhackchallenge.com/
+
+
+
+//####################################
+//
+//  Challenge 1 - Wireless Capture
+//
+//####################################
+
+
+Josh points you to the Southeast Park for Packet analysis expert: 
+Tim > who gives the following tool advice:
+	Burpsuite
+	linux strings
+	wireshark
+	scapy - with a sans write up: 
+	https://pen-testing.sans.org/blog/2011/10/13/special-request-wireless-client-sniffing-with-scapy
+	rdpcap() function : http://www.packetstan.com/2011/05/sorting-packet-captures-with-scapy.html
+	and the custom callback handler prn : http://www.packetstan.com/2010/11/packet-payloads-encryption-and-bacon.html
+
+
+
+Josh With candy cane:
+
+	Node.js using express framework:
+	http://expressjs.com/en/index.html
+	super vulnerable
+
+	LFI ATTACKS:
+	https://hackerone.com/reports/7779
+
+	https://pen-testing.sans.org/blog/2015/12/03/nosql-no-problem-pillaging-mongodb-for-fun-and-profit
+
+
+Dan with present:
+	more on noSQL injection:
+	http://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html
+	says to talk to tim about server side SQL injection
+
+Tom with Lights:
+	make python or bash scripts with netcat: https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf
+	or use more complex tools:
+	sulley - https://github.com/OpenRCE/sulley
+	exploitable plugin for gdb - https://github.com/jfoote/exploitable
+	 - helps determine if a crash is readily exploitable
+	getting past stack canaries and stack guard: http://www.coresecurity.com/files/attachments/StackGuard.pdf
+	getting around ASLR: https://penturalabs.wordpress.com/2011/03/31/vulnerability-development-buffer-overflows-how-to-bypass-full-aslr/
+	ways to disable dep:
+	https://gist.github.com/joswr1ght/a45d000ceaccf4cce6cb
+
+ed:
+	/etc directory https://gist.github.com/joswr1ght/32f241d7d4074ec5e26b
+	look at system startup in init.d directory
+	John the ripper or hashcat to crack the passwords:
+
+tim:
+	injection attacks:
+	https://media.blackhat.com/bh-us-11/Sullivan/BH_US_11_Sullivan_Server_Side_WP.pdf
+	s1gnalcha0s.github.io/node/2015/01/31/SSJS-webshell-injection.html
+
+LOCATIONS
+Secret room 2 - in secret room 1 contained the cookies
+Hot chocolate lower middle
+Something was next to the dumpster to the right of the hotel
+christmas light lower left dan's building, take back to hotel
+
+
+
+//####################################
+//
+//  Challenge 2 - Firmware Analysis
+//
+//####################################
+
+
+Jeff with cookies:
+	Binwalk is a good tool - general website
+	binwalk paper: https://www.sans.org/reading-room/whitepapers/testing/exploiting-embedded-devices-34022
+	CLKF skills: http://blog.commandlinekungfu.com/
+		-talk to jeff for this
+	Intern was really interested in the Konami code from Ready Player one
+
+
+
+
+
+//#######################################################
+//
+//  Challenge 3 - Internet Scavenger Hunt (IP Addresses)
+//
+//#######################################################
+
+
+
+
+
+
+
+
+//####################################
+//
+//  Challenge 4 - Gnomage Pwnage
+//
+//####################################
+
+
+
+256.256.256.256
+ScreenCap of msg output
+
+
+
+
+//####################################
+//
+//  Challenge 5 - Plot and Attribution
+//
+//####################################
+
+
+
+
+
+
+
